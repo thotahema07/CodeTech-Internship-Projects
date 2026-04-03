@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Weather Dashboard</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<!-- Icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<!-- Chart.js -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header class="header">
+    <h1><i class="fa-solid fa-cloud-sun"></i> Weather Dashboard</h1>
+</header>
+
+<main class="main">
+
+    <!-- Search -->
+    <section class="search-section">
+        <div class="search-box">
+            <input type="text" id="city" placeholder="Search city...">
+            <button onclick="getWeather()">
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </button>
+        </div>
+
+        <button class="location-btn" onclick="getLocationWeather()">
+            <i class="fa-solid fa-location-crosshairs"></i> Use My Location
+        </button>
+    </section>
+
+    <!-- Weather -->
+    <section class="weather-section" id="weatherCard">
+        <h2 id="cityName"></h2>
+
+        <div class="weather-main">
+            <img id="icon" src="">
+            <div>
+                <div class="temp" id="temp"></div>
+                <div class="desc" id="desc"></div>
+            </div>
+        </div>
+
+        <div class="details">
+            <div class="detail-box">
+                <i class="fa-solid fa-droplet"></i>
+                <p id="humidity"></p>
+                <span>Humidity</span>
+            </div>
+
+            <div class="detail-box">
+                <i class="fa-solid fa-wind"></i>
+                <p id="wind"></p>
+                <span>Wind</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Forecast -->
+    <section class="forecast-section" id="forecast">
+        <h2>5-Day Forecast</h2>
+        <div id="forecastContainer"></div>
+    </section>
+
+    <!-- Chart -->
+    <section class="chart-section">
+        <h2>Temperature Trend</h2>
+        <canvas id="weatherChart"></canvas>
+    </section>
+
+</main>
+
+<div class="loader" id="loader">
+    <span></span><span></span><span></span>
+</div>
+
+<div class="error" id="error"></div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
